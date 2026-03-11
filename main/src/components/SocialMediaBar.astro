@@ -1,0 +1,73 @@
+---
+import { Instagram, Facebook, Linkedin } from '@lucide/astro';
+
+const socialLinks = [
+  { name: 'Instagram', url: 'https://instagram.com/globalmusicsolutions', Icon: Instagram },
+  { name: 'Facebook', url: 'https://www.facebook.com/gmsol.official', Icon: Facebook },
+  { name: 'X', url: 'https://x.com/gmsol_official', isX: true }, 
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/global-music-solutions-inc/', Icon: Linkedin },
+];
+---
+
+<div class="w-full py-12 border-t border-black/5 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+    
+    <div class="flex items-center gap-4">
+      <div class="flex gap-1 items-end h-4" aria-hidden="true">
+        <div class="w-[2px] h-full bg-black animate-pulse"></div>
+        <div class="w-[2px] h-[60%] bg-black animate-pulse [animation-delay:0.2s]"></div>
+        <div class="w-[2px] h-[80%] bg-black animate-pulse [animation-delay:0.4s]"></div>
+      </div>
+      <span class="font-mono text-[10px] uppercase tracking-[0.4em] text-black/40">
+        Stay in Sync
+      </span>
+    </div>
+
+    <div class="flex items-center gap-0">
+      {socialLinks.map((link) => {
+        const Icon = link.Icon;
+        return (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.name}
+            class="group relative p-6 border-l border-gray-100 last:border-r hover:bg-black transition-all duration-500"
+          >
+            {link.isX ? (
+              <svg
+                class="w-5 h-5 transition-colors duration-500 group-hover:text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24h-2.19L17.61 20.644Z"/>
+              </svg>
+            ) : Icon ? (
+              <Icon class="w-5 h-5 transition-colors duration-500 group-hover:text-white" aria-hidden="true" />
+            ) : null}
+            
+            <span class="absolute -top-8 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white px-2 py-1 pointer-events-none">
+              {link.name}
+            </span>
+          </a>
+        )
+      })}
+    </div>
+
+    <p class="font-mono text-[9px] uppercase tracking-widest text-black/40">
+      © 2026 Global Music Solutions Inc. // All Rights Reserved
+    </p>
+
+  </div>
+</div>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.5); }
+  }
+  .animate-pulse {
+    animation: pulse 1.2s infinite ease-in-out;
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import H2 from './headerfont/H2.astro';
+import H3 from './headerfont/H3.astro';
+import SectionLabel from './headerfont/SectionLabel.astro';
+
+// Fetch all posts and sort by date (newest first)
+const allPosts = await getCollection('posts');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 2); 
+---
+
+<section class="bg-[#FAF7F2] py-24 lg:py-32 border-b border-[#0C0C0C]/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div>
+        <div class="flex items-center gap-4 mb-4">
+          <SectionLabel>// Recent_Transmissions</SectionLabel>
+          <div class="h-[1px] w-12 bg-[#A53029]"></div>
+        </div>
+        <H2 class="text-[#0C0C0C]">
+          Liner <span class="italic text-transparent stroke-onyx">Notes</span>
+        </H2>
+      </div>
+      
+      <a href="/blog" class="group flex items-center gap-4 font-mono text-xs uppercase tracking-widest border-b border-[#0C0C0C] pb-2 text-[#0C0C0C]">
+        View Full Archive 
+        <span class="group-hover:translate-x-2 transition-transform duration-300 text-[#A53029]">→</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+      {latestPosts.map((post) => (
+        <a href={`/blog/${post.slug}`} class="group relative block overflow-hidden">
+          <div class="relative h-[400px] w-full bg-[#0C0C0C] mb-8 overflow-hidden">
+            <img
+              src={post.data.image}
+              alt={post.data.title}
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="400"
+              class="w-full h-full object-cover opacity-80 grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/80 via-transparent to-transparent opacity-60"></div>
+            
+            <div class="absolute top-6 left-6 shadow-xl">
+              <span class="bg-[#A53029] text-[#F7F7F7] font-mono text-[9px] px-3 py-1 uppercase tracking-widest">
+                New_Entry
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-4 px-2">
+            <div class="flex items-center gap-3 font-mono text-[10px] text-[#0C0C0C]/40 uppercase tracking-widest">
+              <span>{post.data.date}</span>
+              <span class="text-[#A53029]">//</span>
+              <span>By {post.data.author.replace('-', ' ')}</span>
+            </div>
+            <H3 class="text-[#0C0C0C] group-hover:text-[#A53029] transition-colors">
+              {post.data.title}
+            </H3>
+            <p class="font-sans text-[#0C0C0C]/60 line-clamp-2 text-sm leading-relaxed">
+              {post.body.slice(0, 140)}...
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Switched stroke to Onyx Depth */
+  .stroke-onyx {
+    -webkit-text-stroke: 1.5px #0C0C0C;
+  }
+</style>

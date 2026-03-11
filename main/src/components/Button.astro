@@ -1,0 +1,31 @@
+---
+// Button.astro
+type Props = {
+  text: string;
+  href?: string;
+  variant?: "primary" | "secondary" | "outline";
+  class?: string;
+};
+
+const {
+  text,
+  href = "#",
+  variant = "primary",
+  class: customClass
+} = Astro.props;
+
+const baseClass = "w-52 px-4 py-4 rounded-3xl text-xs font-semibold transition duration-300 text-center";
+
+const variantClass = {
+  primary: "mt-8 px-8 py-4 bg-black text-white text-xs uppercase tracking-[0.2em] hover:bg-[#A53029] transition-all duration-500",
+  secondary: "bg-gray-600 text-white hover:bg-gray-700",
+  outline: "border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+}[variant];
+--- 
+
+<a 
+  href={href}
+  class={`${baseClass} ${variantClass} ${customClass}`}
+  >
+  {text}
+</a>

@@ -1,0 +1,77 @@
+---
+import H2 from './headerfont/H2.astro';
+import H3 from './headerfont/H3.astro';
+import SectionLabel from './headerfont/SectionLabel.astro';
+---
+
+<section class="bg-[#0C0C0C] py-24 lg:py-32 border-b border-white/5 relative">
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-6">
+        <SectionLabel>// Performance_Metrics</SectionLabel>
+        <div class="h-[1px] flex-grow bg-white/10"></div>
+      </div>
+      <H2 class="text-[#F7F7F7] mb-6">
+        Our <span class="italic text-transparent stroke-white">Strategies</span>
+      </H2>
+      <p class="font-sans text-[#F7F7F7]/60 max-w-lg leading-relaxed">
+        The skillset we bring to maximize our output and guarantee success across global music territories.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-0">
+      
+      <div class="lg:pr-12 lg:border-r border-white/5">
+        <div class="mb-8 w-12 h-12 flex items-center justify-center bg-transparent border border-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8"></path>
+            <path d="M3 16.2V21m0 0h4.8M3 21l6-6"></path>
+            <path d="M21 7.8V3m0 0h-4.8M21 3l-6 6"></path>
+            <path d="M3 7.8V3m0 0h4.8M3 3l6 6"></path>
+          </svg>
+        </div>
+        <span class="font-mono text-[10px] block mb-2 text-[#A53029]">MOD_01</span>
+        <H3 class="text-[#F7F7F7] mb-4">Flexible and Adaptive</H3>
+        <p class="font-sans text-sm text-[#F7F7F7]/40 leading-relaxed">
+          Dynamic workflows that pivot based on shifting royalty landscapes and regional requirements.
+        </p>
+      </div>
+
+      <div class="lg:px-12 lg:border-r border-white/5">
+        <div class="mb-8 w-12 h-12 flex items-center justify-center bg-transparent border border-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <span class="font-mono text-[10px] block mb-2 text-[#A53029]">MOD_02</span>
+        <H3 class="text-[#F7F7F7] mb-4">Proven Methodology</H3>
+        <p class="font-sans text-sm text-[#F7F7F7]/40 leading-relaxed">
+          Standardized processes refined through years of backend administration for major rights holders.
+        </p>
+      </div>
+
+      <div class="lg:pl-12">
+        <div class="mb-8 w-12 h-12 flex items-center justify-center bg-transparent border border-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <span class="font-mono text-[10px] block mb-2 text-[#A53029]">MOD_03</span>
+        <H3 class="text-[#F7F7F7] mb-4">Quality Assurance</H3>
+        <p class="font-sans text-sm text-[#F7F7F7]/40 leading-relaxed">
+          Multi-layer verification ensures that no metadata is lost and every cue is accounted for.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .stroke-white {
+    -webkit-text-stroke: 1px #F7F7F7;
+  }
+</style>

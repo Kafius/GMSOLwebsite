@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import T4 from './textfont/T4.astro';
+const { src, alt, backText } = Astro.props;
+---
+
+<div class="[perspective:1000px] w-[200px] max-h-[200px] sm:max-h-[200px] md:max-h-[250px]">
+  <div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+    <!-- Front -->
+    <div class="absolute inset-0 [backface-visibility:hidden] flex items-center justify-center">
+      <Image
+        src={src}
+        alt={alt}
+        class="w-auto h-auto object-contain max-h-[150px] sm:max-h-[200px] md:max-h-[250px] max-w-[200px]"
+      />
+    </div>
+
+    <!-- Back (text instead of image) -->
+    <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center text-white text-center p-4">
+        <T4 text={backText} color="#111111"/>
+    </div>
+  </div>
+</div>

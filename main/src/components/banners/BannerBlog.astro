@@ -1,0 +1,61 @@
+---
+import H1 from '../headerfont/H1.astro';
+---
+<section class="relative bg-[#111111] py-32 lg:py-48 overflow-hidden border-b border-white/5">
+  
+  <div class="absolute bottom-0 left-0 w-full h-64 flex items-end justify-center gap-1 opacity-[0.05] pointer-events-none" aria-hidden="true">
+    {Array.from({ length: 60 }).map((_, i) => (
+      <div 
+        class="w-4 bg-white animate-eq" 
+        style={`height: ${Math.random() * 100}%; animation-delay: ${i * 0.05}s`}
+      ></div>
+    ))}
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex flex-col items-start">
+      
+      <div class="flex items-center gap-4 mb-8">
+        <span class="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40">
+          // Side D: Field Recordings
+        </span>
+        <div class="h-[1px] w-12 bg-white/10"></div>
+      </div>
+
+      <H1 class="text-[12vw] lg:text-[9vw] leading-[0.8] text-white">
+        Liner <br />
+        <span class="text-transparent stroke-white italic">Notes</span>
+      </H1>
+
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 w-full">
+        <div class="lg:col-start-7 lg:col-span-6 border-l-2 border-[#A53029] pl-8">
+          <p class="font-sans text-lg lg:text-xl text-white/70 leading-relaxed italic">
+            "The industry doesn't just happen; it's recorded, processed, and mastered."
+          </p>
+          <p class="mt-4 font-mono text-[10px] uppercase tracking-widest text-white/30">
+            Insights on Cue Sheets, Royalty Flow, and Global Tech.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Outlined text effect - Switched to White */
+  .stroke-white {
+    -webkit-text-stroke: 1.5px white;
+  }
+
+  /* Equalizer Animation */
+  @keyframes eq {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.3); }
+  }
+
+  .animate-eq {
+    animation: eq 1.5s infinite ease-in-out;
+    transform-origin: bottom;
+  }
+</style>

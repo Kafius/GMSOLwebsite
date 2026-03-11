@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import recordImg from '../assets/record.jpg';
+import Container from "../components/Container.astro";
+import H2 from './headerfont/H2.astro';
+import SectionLabel from './headerfont/SectionLabel.astro';
+---
+
+<section class="relative bg-[#0C0C0C] py-24 lg:py-32 overflow-hidden border-b border-white/5">
+  <Container class="relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <div class="lg:col-span-5 relative">
+        <div class="relative aspect-[4/5] overflow-hidden bg-[#161616] border border-white/10">
+          <Image
+            src={recordImg}
+            alt="GMS Executive Experience"
+            width={800}
+            height={1000}
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-70 hover:opacity-100"
+          />
+          
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-[#A53029] pointer-events-none"></div>
+        </div>
+        
+        <div class="absolute -left-4 top-10 rotate-90 origin-left">
+          <span class="font-mono text-[9px] uppercase tracking-[0.4em] text-[#F7F7F7]/20">
+            Est_Ref: 20+ Years_EXP
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="flex items-center gap-4 mb-8">
+          <SectionLabel>// Proven_Heritage</SectionLabel>
+          <div class="h-[1px] w-12 bg-white/10"></div>
+        </div>
+
+        <H2 class="leading-[0.9] mb-8 text-[#F7F7F7]">
+          Decades of <br />
+          <span class="italic text-transparent stroke-white">Industry Authority</span>
+        </H2>
+
+        <div class="space-y-6 max-w-2xl">
+          <p class="font-sans text-lg text-[#F7F7F7]/90 leading-relaxed italic border-l-2 border-[#A53029] pl-6">
+            Global Music Solutions Inc. bridges the gap between high-level royalty administration and sophisticated IT infrastructure.
+          </p>
+          
+          <p class="font-sans text-sm text-[#F7F7F7]/50 leading-relaxed">
+            Founded by a former <span class="text-[#F7F7F7] font-bold">SOCAN</span> specialist with over 20 years in cue sheet processing and quality assurance management, we bring an insider’s precision to backend operations. 
+          </p>
+          
+          <p class="font-sans text-sm text-[#F7F7F7]/50 leading-relaxed">
+            Paired with 28 years of IT Consulting expertise in <span class="text-[#F7F7F7] font-bold">HR, Finance, and CRM database systems</span>, our team delivers cost-effective solutions that improve overall productivity.
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+          <div>
+            <p class="font-heading text-4xl text-[#A53029]">20+</p>
+            <p class="font-mono text-[9px] uppercase tracking-widest text-[#F7F7F7]/30">Royalty Precision</p>
+          </div>
+          <div>
+            <p class="font-heading text-4xl text-[#A53029]">28+</p>
+            <p class="font-mono text-[9px] uppercase tracking-widest text-[#F7F7F7]/30">IT Infrastructure</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>
+
+<style>
+  .stroke-white {
+    -webkit-text-stroke: 1.5px #F7F7F7;
+  }
+</style>

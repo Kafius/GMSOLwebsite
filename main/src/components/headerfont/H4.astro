@@ -1,0 +1,8 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<'h4'> {}
+const { class: className = '' } = Astro.props;
+---
+<h4 class={`font-heading text-xl lg:text-2xl uppercase tracking-tight ${className}`}>
+  <slot />
+</h4>

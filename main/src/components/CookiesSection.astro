@@ -1,0 +1,90 @@
+---
+const lastUpdated = "February 13, 2026";
+const signalRef = "SIG-COOKIE-AX7";
+---
+
+    <main class="pt-32 lg:pt-48 pb-24">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12">
+            
+            <div class="border-b-2 border-black pb-12 mb-16">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="font-mono text-[#A53029] text-[10px] uppercase tracking-[0.5em]">// Signal_Ref: {signalRef}</span>
+                    <div class="h-[1px] w-12 bg-gray-200"></div>
+                </div>
+                <h1 class="font-heading text-6xl lg:text-8xl uppercase tracking-tighter leading-none mb-8">
+                    Cookie <span class="italic text-transparent stroke-black">Protocol</span>
+                </h1>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                    Transmission Date: {lastUpdated} // Frequency: Persistent & Session
+                </p>
+            </div>
+
+            <div class="prose prose-zinc max-w-none 
+                prose-h2:font-heading prose-h2:uppercase prose-h2:text-3xl prose-h2:tracking-tight prose-h2:mt-16 prose-h2:mb-8
+                prose-p:font-sans prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6">
+                
+                <p class="lead text-xl text-black font-medium italic border-l-4 border-[#A53029] pl-6 my-10">
+                    Global Music Solutions uses "Cookies" and similar tracking technologies to optimize our interface performance and analyze site traffic patterns.
+                </p>
+
+                <h2>1. Definition // What are Cookies?</h2>
+                <p>
+                    Cookies are small data packets stored on your device's hardware. They act as "memory markers" that allow our system to recognize your browser and remember specific preferences across sessions.
+                </p>
+
+                <h2>2. Classification of Signals</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+                    <div class="p-6 border border-gray-100 bg-zinc-50">
+                        <span class="font-mono text-[10px] text-[#A53029] uppercase mb-2 block">System_Essential</span>
+                        <p class="font-sans text-sm text-gray-600">Mandatory for the terminal to function. These handle security and navigation protocols.</p>
+                    </div>
+                    <div class="p-6 border border-gray-100 bg-zinc-50">
+                        <span class="font-mono text-[10px] text-[#A53029] uppercase mb-2 block">Analytics_Input</span>
+                        <p class="font-sans text-sm text-gray-600">Help us measure performance by tracking how users interact with our "Liner Notes" and reports.</p>
+                    </div>
+                </div>
+
+                <h2>3. Third-Party Integration</h2>
+                <p>
+                    In some cases, we use cookies provided by trusted third parties, such as Google Analytics. These signals help us understand which industry insights are most valuable to our users, allowing us to master our content more effectively.
+                </p>
+
+                <h2>4. User Overrides // Disabling Cookies</h2>
+                <p>
+                    You can prevent the setting of cookies by adjusting the settings on your browser. Be advised that disabling cookies may downgrade or "break" certain elements of this site's functionality.
+                </p>
+
+                <div class="mt-20 p-8 border-t-2 border-black">
+                    <h3 class="font-heading text-2xl uppercase mb-4 text-[#A53029]">Audit Your Data</h3>
+                    <p class="font-sans text-sm text-gray-500 mb-6">
+                        If you require a full audit of the data signals we collect during your session, please reach out to our technical department.
+                    </p>
+                    <a href="mailto:support@globalmusicsolutions.com" class="font-mono text-xs uppercase tracking-widest underline hover:text-[#A53029] transition-colors">
+                        [ Request_Data_Log ]
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-gray-100 text-center">
+        <p class="font-mono text-[9px] uppercase tracking-widest text-gray-300">
+            Global Music Solutions // Technical Compliance Unit
+        </p>
+    </footer>
+
+</body>
+</html>
+
+<style is:global>
+    :root {
+        --font-heading: 'Oswald', sans-serif;
+        --font-sans: 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+    }
+    .font-heading { font-family: var(--font-heading); }
+    .font-sans { font-family: var(--font-sans); }
+    .font-mono { font-family: var(--font-mono); }
+    .stroke-black { -webkit-text-stroke: 1.5px black; }
+</style>

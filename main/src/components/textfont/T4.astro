@@ -1,0 +1,11 @@
+---
+type Props = {
+    text: string;
+    color: string;
+};
+const { text, color } = Astro.props;
+---
+
+<h3 class="text-sm md:text-base max-w-[200px] md:max-w-[250px]" style={`color: ${color};`}>
+  {text}
+</h3>

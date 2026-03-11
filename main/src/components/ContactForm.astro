@@ -1,0 +1,114 @@
+---
+import H2 from './headerfont/H2.astro';
+import SectionLabel from './headerfont/SectionLabel.astro';
+---
+
+<section class="bg-[#FAF7F2] py-24 lg:py-40 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+      
+      <div class="lg:col-span-4">
+        <div class="sticky top-32">
+          <SectionLabel class="block mb-6">// Side C: Connectivity</SectionLabel>
+          <H2 class="text-6xl leading-none mb-12">
+            Get in <br /> <span class="italic text-gray-400">Sync</span>
+          </H2>
+          
+          <div class="space-y-10">
+            <div>
+              <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Direct Channel</p>
+              <a href="mailto:info@gmsol.ca" class="font-heading text-xl uppercase hover:italic transition-all">info@gmsol.ca</a>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Studio Location</p>
+              <p class="font-sans text-base leading-relaxed">
+                Toronto, Ontario
+              </p>
+            </div>
+            <div>
+                <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Operational Hours</p>
+                <p class="font-sans text-base leading-relaxed text-gray-500">
+                  MON — FRI: 09:00 - 18:00 EST
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 border-l border-gray-100 lg:pl-20">
+        <form action="https://formspree.io/f/your_form_id" method="POST" class="space-y-12">
+          
+          <div class="group relative">
+            <label for="name" class="font-mono text-[10px] uppercase tracking-widest text-gray-400 group-focus-within:text-black transition-colors">
+              Full Name / Organization
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              placeholder="John Doe / Global Publishing"
+              class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-black transition-colors placeholder:text-gray-200 font-sans text-lg"
+            />
+          </div>
+
+          <div class="group relative">
+            <label for="email" class="font-mono text-[10px] uppercase tracking-widest text-gray-400 group-focus-within:text-black transition-colors">
+              Return Address (Email)
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              placeholder="email@example.com"
+              class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-black transition-colors placeholder:text-gray-200 font-sans text-lg"
+            />
+          </div>
+
+          <div class="group relative">
+            <label for="subject" class="font-mono text-[10px] uppercase tracking-widest text-gray-400 group-focus-within:text-black transition-colors">
+              Request Type
+            </label>
+            <select 
+              id="subject" 
+              name="subject" 
+              class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-black transition-colors font-sans text-lg appearance-none cursor-pointer"
+            >
+              <option value="cue-sheets">Cue Sheet Processing</option>
+              <option value="qa">Quality Assurance</option>
+              <option value="registration">Works Registration</option>
+              <option value="other">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="group relative">
+            <label for="message" class="font-mono text-[10px] uppercase tracking-widest text-gray-400 group-focus-within:text-black transition-colors">
+              Message / Project Details
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4"
+              placeholder="Describe your requirements..."
+              class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-black transition-colors placeholder:text-gray-200 font-sans text-lg resize-none"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            class="group relative flex items-center gap-6 py-6 px-10 bg-black text-white uppercase font-mono text-xs tracking-[0.3em] hover:bg-[#A53029] transition-all duration-500 overflow-hidden"
+          >
+            <span class="relative z-10">Transmit Signal</span>
+            <svg class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h14" />
+            </svg>
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

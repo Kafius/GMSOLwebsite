@@ -1,0 +1,81 @@
+---
+import H1 from '../headerfont/H1.astro';
+import SectionLabel from '../headerfont/SectionLabel.astro';
+---
+<section class="relative min-h-screen w-full overflow-hidden bg-[#0C0C0C]">
+  
+  <div class="absolute top-0 bottom-0 left-0 w-[20%] lg:w-[25%] z-0 opacity-80 pointer-events-none flex justify-around px-4" aria-hidden="true">
+    {Array.from({ length: 4 }).map((_, i) => (
+      <div class="relative h-full w-[40px] lg:w-[60px] flex flex-col items-center">
+        <div class="absolute top-[12%] flex flex-col gap-1 items-center">
+          <div class="w-2 h-1 bg-red-600/40 border border-red-500/50 shadow-[0_0_8px_rgba(220,38,38,0.3)]"></div>
+          <div class="w-2 h-1 bg-yellow-500/40 border border-yellow-400/50"></div>
+          <div class="w-2 h-1 bg-green-500/40 border border-green-500/50"></div>
+        </div>
+        <div class="absolute top-1/4 bottom-1/4 w-[8px] bg-black/80 rounded-full border border-white/5"></div>
+        <div 
+          class="absolute w-8 h-12 lg:w-11 lg:h-16 z-10 rounded-sm shadow-[0_15px_30px_rgba(0,0,0,0.9)] flex flex-col justify-center items-center animate-fader-move"
+          style={`top: ${25 + Math.random() * 45}%; animation-delay: ${i * -0.8}s; animation-duration: ${8 + Math.random() * 4}s; background: linear-gradient(145deg, #e2e2e2, #a1a1a1); border: 1px solid #fff;`}
+        >
+          <div class="w-full h-[4px] bg-[#A53029] shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="absolute top-0 bottom-0 right-0 w-[20%] lg:w-[25%] z-0 opacity-80 pointer-events-none flex justify-around px-4" aria-hidden="true">
+    {Array.from({ length: 4 }).map((_, i) => (
+      <div class="relative h-full w-[40px] lg:w-[60px] flex flex-col items-center">
+        <div class="absolute top-[12%] flex flex-col gap-1 items-center">
+          <div class="w-2 h-1 bg-red-600/40 border border-red-500/50 shadow-[0_0_8px_rgba(220,38,38,0.3)]"></div>
+          <div class="w-2 h-1 bg-yellow-500/40 border border-yellow-400/50"></div>
+          <div class="w-2 h-1 bg-green-500/40 border border-green-500/50"></div>
+        </div>
+        <div class="absolute top-1/4 bottom-1/4 w-[8px] bg-black/80 rounded-full border border-white/5"></div>
+        <div 
+          class="absolute w-8 h-12 lg:w-11 lg:h-16 z-10 rounded-sm shadow-[0_15px_30px_rgba(0,0,0,0.9)] flex flex-col justify-center items-center animate-fader-move"
+          style={`top: ${25 + Math.random() * 45}%; animation-delay: ${(i+4) * -0.8}s; animation-duration: ${8 + Math.random() * 4}s; background: linear-gradient(145deg, #e2e2e2, #a1a1a1); border: 1px solid #fff;`}
+        >
+          <div class="w-full h-[4px] bg-[#A53029] shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_#0C0C0C_90%)] z-[1]"></div>
+
+  <div class="relative z-10 flex flex-col h-full min-h-screen pt-32 lg:pt-48 px-6 lg:px-24">
+    <div class="max-w-7xl w-full mx-auto flex flex-col justify-between h-full pb-20">
+      
+      <div class="max-w-4xl">
+        <SectionLabel class="block mb-4">// Session: Active_Master</SectionLabel>
+        <H1 class="text-[7vw] lg:text-[5vw] text-white">
+          Assisting Performing <br /> Rights Societies
+        </H1>
+        <H1 class="text-[9vw] lg:text-[4.5vw] text-transparent stroke-white italic mt-4">
+          All Over The World
+        </H1>
+      </div>
+
+      <div class="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-8 mt-12">
+        <p class="text-gray-400 max-w-sm text-sm uppercase font-mono tracking-widest">
+          Precision Cue Sheet Processing // Global Standards
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .stroke-white { -webkit-text-stroke: 1.2px white; }
+
+  @keyframes fader-move {
+    0%, 100% { transform: translateY(-15px); }
+    50% { transform: translateY(15px); }
+  }
+
+  .animate-fader-move {
+    animation: fader-move infinite ease-in-out;
+  }
+</style>

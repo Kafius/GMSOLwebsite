@@ -1,0 +1,8 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<'span'> {}
+const { class: className = '' } = Astro.props;
+---
+<span class={`font-mono text-[10px] uppercase tracking-[0.5em] text-[#A53029] ${className}`}>
+  <slot />
+</span>

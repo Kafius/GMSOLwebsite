@@ -1,0 +1,141 @@
+---
+export const prerender = true;
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('posts');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry }, 
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, author, date, image } = entry.data;
+
+// Formatting author for the "Archive" look
+const formattedAuthor = author.replace(/-/g, ' ');
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${title} — Global Music Solutions industry insights on music royalties and performing rights.`} />
+    <meta property="og:title" content={`${title} | GMS Archive`} />
+    <meta property="og:description" content={`${title} — Global Music Solutions industry insights on music royalties and performing rights.`} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | GMS Archive`} />
+    <meta name="twitter:image" content={image} />
+    <title>{title} | GMS Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-white text-black antialiased">
+    
+    <Header />
+
+    <div class="fixed top-0 left-0 w-full h-1 z-[100] bg-black/5">
+        <div id="progress-bar" class="h-full bg-[#A53029] w-0 transition-all duration-150"></div>
+    </div>
+
+    <main>
+        <header class="relative h-[70vh] min-h-[500px] w-full bg-black flex items-end overflow-hidden">
+            <div class="absolute inset-0">
+                <img
+                    src={image}
+                    alt={title}
+                    decoding="async"
+                    width="1920"
+                    height="1080"
+                    class="w-full h-full object-cover opacity-50 grayscale"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-12 pb-20">
+                <div class="flex items-center gap-4 mb-8">
+                  <span class="font-mono text-[#A53029] text-[10px] uppercase tracking-[0.5em]">
+                    // Internal_Log: {entry.slug}
+                  </span>
+                  <div class="h-[1px] w-12 bg-white/20"></div>
+                </div>
+                
+                <h1 class="font-heading text-5xl lg:text-8xl text-white uppercase tracking-tighter leading-[0.85] max-w-5xl">
+                    {title}
+                </h1>
+            </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <aside class="lg:col-span-3">
+                    <div class="sticky top-32 space-y-12 border-t-2 border-black pt-8">
+                        <div>
+                            <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Dispatcher</p>
+                            <p class="font-heading text-xl uppercase tracking-tight">{formattedAuthor}</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Timestamp</p>
+                            <p class="font-mono text-xs uppercase text-black">{date}</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-2">Classification</p>
+                            <p class="font-mono text-[10px] uppercase bg-black text-white px-2 py-1 inline-block">Industry_Insights</p>
+                        </div>
+                    </div>
+                </aside>
+
+                <article class="lg:col-span-8 lg:col-start-5">
+                    <div class="prose prose-lg prose-zinc max-w-none 
+                        prose-h3:font-heading prose-h3:uppercase prose-h3:text-3xl prose-h3:tracking-tighter prose-h3:mt-12
+                        prose-p:font-sans prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-8
+                        prose-strong:text-black prose-strong:font-bold
+                        prose-blockquote:border-[#A53029] prose-blockquote:bg-zinc-50 prose-blockquote:py-2 prose-blockquote:font-sans prose-blockquote:italic">
+                        <Content />
+                    </div>
+                    
+                    <div class="mt-32 pt-12 border-t border-gray-100 flex justify-between items-center">
+                        <a href="/blog" class="group flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest">
+                            <span class="group-hover:-translate-x-2 transition-transform duration-300">←</span> 
+                            Return_to_Archive
+                        </a>
+                        <span class="font-mono text-[9px] text-gray-300 uppercase tracking-widest">// End_Of_Report</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const progressBar = document.getElementById("progress-bar");
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const winScroll = document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    if (progressBar) progressBar.style.width = scrolled + "%";
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
+
+<style is:global>
+    .font-heading { font-family: 'Oswald', sans-serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+</style>

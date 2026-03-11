@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../components/Header.astro';
+import BannerBlog from '../components/banners/BannerBlog.astro';
+import Footer from '../components/Footer.astro';
+
+// Fetch collection and sort by date
+const posts = (await getCollection('posts')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse the Global Music Solutions blog archive for industry insights on music royalties, cue sheets, and performing rights." />
+    <title>Archive | GMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-[#F7F7F7] text-[#0C0C0C]">
+    <Header />
+    <BannerBlog/>
+    
+    <main class="py-32 max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-8">
+            <span class="font-mono text-[#A53029] text-[10px] uppercase tracking-[0.5em]">// File_Index</span>
+            <div class="h-[1px] flex-grow bg-[#0C0C0C]/10"></div>
+        </div>
+        
+        <h1 class="font-heading text-6xl lg:text-8xl uppercase tracking-tighter mb-16">Archive</h1>
+        
+        <div class="flex flex-col border-t border-[#0C0C0C]">
+            {posts.map((post) => (
+                <a href={`/blog/${post.slug}`} class="py-8 border-b border-[#0C0C0C]/10 group block">
+                    <div class="flex flex-col md:flex-row md:items-center gap-8">
+                        
+                        <div class="w-full md:w-48 h-32 overflow-hidden bg-[#0C0C0C]">
+                            <img
+                                src={post.data.image}
+                                alt={post.data.title}
+                                loading="lazy"
+                                decoding="async"
+                                width="192"
+                                height="128"
+                                class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                            />
+                        </div>
+
+                        <div class="flex-grow grid grid-cols-1 md:grid-cols-12 items-center gap-4">
+                            <div class="md:col-span-2">
+                                <span class="font-mono text-sm text-[#A53029]">{post.data.date}</span>
+                            </div>
+                            
+                            <div class="md:col-span-8">
+                                <h2 class="font-heading text-2xl lg:text-3xl uppercase tracking-tight group-hover:italic transition-all">
+                                    {post.data.title}
+                                </h2>
+                            </div>
+
+                            <div class="md:col-span-2 text-right">
+                                <span class="font-mono text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity underline decoration-[#A53029] underline-offset-4">
+                                    Open_File
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+            ))}
+        </div>
+    </main>
+
+    <Footer/>
+</body>
+</html>
+
+<style is:global>
+    :root {
+        --onyx: #0C0C0C;
+        --porcelain: #F7F7F7;
+        --brand-red: #A53029;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    .font-heading { font-family: 'Oswald', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+</style>

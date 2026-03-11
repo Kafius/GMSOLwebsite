@@ -1,0 +1,61 @@
+---
+import H1 from '../headerfont/H1.astro';
+import SectionLabel from '../headerfont/SectionLabel.astro';
+---
+
+<section class="relative bg-[#0C0C0C] py-24 lg:py-40 overflow-hidden">
+  <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+    <div class="h-full w-full flex items-center justify-around gap-2 px-4">
+      {Array.from({ length: 40 }).map((_, i) => (
+        <div 
+          class={`w-1 animate-pulse ${i % 5 === 0 ? 'bg-[#A53029]' : 'bg-[#F7F7F7]'}`} 
+          style={`height: ${Math.random() * 100}%; animation-delay: ${i * 0.1}s`}
+        ></div>
+      ))}
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      
+      <div class="lg:col-span-8">
+        <SectionLabel class="block mb-4">// Side A: The Mission</SectionLabel>
+        <H1 class="text-[10vw] lg:text-[6vw] leading-[0.8] text-[#F7F7F7]">
+          Mastering the <br />
+          <span class="italic text-transparent stroke-white">Rhythm of Data</span>
+        </H1>
+      </div>
+
+      <div class="lg:col-span-4 border-l border-[#F7F7F7]/20 pl-8 pb-4">
+        <p class="font-sans text-[#F7F7F7]/50 text-sm lg:text-base leading-relaxed mb-6">
+          Just as a master recording requires precision, your cue sheets demand flawless execution. We harmonize global performing rights data with surgical accuracy.
+        </p>
+        <div class="flex gap-4 text-[#F7F7F7]">
+          <div class="h-10 w-10 rounded-full border border-[#F7F7F7]/40 flex items-center justify-center hover:border-[#A53029] hover:bg-[#A53029] transition-all duration-300 group">
+            <div class="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-[#F7F7F7] border-b-[5px] border-b-transparent ml-1"></div>
+          </div>
+          <span class="font-mono text-[10px] uppercase self-center tracking-[0.2em] opacity-60">
+            Est. // 2019
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Updated to Bone Porcelain stroke */
+  .stroke-white {
+    -webkit-text-stroke: 1.2px #F7F7F7;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.4); }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s infinite ease-in-out;
+  }
+</style>

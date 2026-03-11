@@ -1,0 +1,85 @@
+---
+import H3 from './headerfont/H3.astro';
+
+const services = [
+  {
+    id: "01",
+    title: "Music Cue Sheet Processing",
+    description: "We process music cue sheets from diverse sources using robust systems and tools to ensure royalties are paid accurately and on time."
+  },
+  {
+    id: "02",
+    title: "Header Verification & Creation",
+    description: "We ensure accurate header details are retrieved and created from all cue sheets — the essential first step for efficient royalty processing."
+  },
+  {
+    id: "03",
+    title: "Common Works Registration",
+    description: "We register works and cues using information from composers, publishers, and PROs to ensure your royalties are tracked and paid correctly."
+  },
+  {
+    id: "04",
+    title: "Works and Cues Maintenance",
+    description: "We research and update works and cues using information from stakeholders, ensuring your data stays accurate and up to date."
+  }
+];
+---
+
+<section class="bg-[#F5EFE6] py-24 lg:py-40 px-6 lg:px-12 overflow-hidden text-[#0C0C0C]">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="flex items-center gap-4 mb-16">
+      <div class="h-[1px] w-12 bg-[#A53029]"></div>
+      <span class="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0C0C0C]/50">Service Tracklist // Side B</span>
+    </div>
+
+    <div class="flex flex-col">
+      {services.map((service) => (
+        <div class="group relative border-b border-[#0C0C0C]/10 py-12 lg:py-16 transition-all duration-500 hover:bg-[#FAF7F2] px-4">
+          
+          <div class="absolute left-0 bottom-0 h-0 w-[2px] bg-[#A53029] group-hover:h-full transition-all duration-700"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <div class="lg:col-span-1">
+              <span class="font-mono text-xs text-[#0C0C0C]/30 group-hover:text-[#A53029] transition-colors">
+                [{service.id}]
+              </span>
+            </div>
+
+            <div class="lg:col-span-5">
+              <H3 class="leading-none group-hover:italic transition-all">
+                {service.title}
+              </H3>
+            </div>
+
+            <div class="lg:col-span-4">
+              <p class="font-sans text-sm lg:text-base text-[#0C0C0C]/70 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-end items-center opacity-0 group-hover:opacity-100 transition-opacity">
+               <span class="font-mono text-[10px] uppercase tracking-widest mr-4 text-[#A53029]">Select Task</span>
+               <div class="w-10 h-10 rounded-full border border-[#0C0C0C] flex items-center justify-center group-hover:bg-[#A53029] group-hover:border-[#A53029] group-hover:text-white transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+               </div>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 flex flex-col lg:flex-row justify-between items-center border-t border-[#0C0C0C] pt-8 gap-6">
+        <p class="font-mono text-[10px] uppercase tracking-widest">Total Duration: Scalable Solutions</p>
+        <div class="flex gap-2">
+            {Array.from({ length: 5 }).map((_, i) => (
+                <div class={`h-4 w-1 bg-[#0C0C0C] ${i > 2 ? 'opacity-10' : 'bg-[#A53029]'}`}></div>
+            ))}
+        </div>
+        <p class="font-mono text-[10px] uppercase tracking-widest text-[#0C0C0C]/30">Mastered for PROs</p>
+    </div>
+
+  </div>
+</section>

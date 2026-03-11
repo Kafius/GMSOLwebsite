@@ -1,0 +1,62 @@
+---
+import H2 from './headerfont/H2.astro';
+import H4 from './headerfont/H4.astro';
+
+const stats = [
+  { 
+    number: "05", 
+    label: "Years in Business", 
+    description: "Establishing a legacy of excellence in the performing rights sector." 
+  },
+  { 
+    number: "15", 
+    label: "QA Mastery", 
+    description: "Years specialized in cue sheet quality assurance for global outsource firms." 
+  },
+  { 
+    number: "30", 
+    label: "Processing Expertise", 
+    description: "Years of high-productivity, cost-effective cue sheet processing solutions." 
+  }
+];
+---
+
+<section class="bg-[#FAF7F2] py-24 px-6 lg:px-12 border-t border-[#0C0C0C]/5">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="mb-20 flex flex-col lg:flex-row justify-between items-baseline gap-4">
+      <H2 class="text-4xl lg:text-5xl text-[#0C0C0C]">
+        Proven <span class="italic" style="color: #A53029">Experience</span>
+      </H2>
+      <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-[#0C0C0C]/40">
+        // Performance Metrics / 2026
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-l border-t border-[#0C0C0C]">
+      {stats.map((stat) => (
+        <div class="group p-10 border-r border-b border-[#0C0C0C] hover:bg-[#0C0C0C] transition-colors duration-700">
+          <div class="flex flex-col h-full justify-between">
+            <div>
+              <span class="block font-heading text-7xl lg:text-8xl leading-none tracking-tighter text-[#0C0C0C] group-hover:text-[#F7F7F7] transition-colors duration-500">
+                {stat.number}
+              </span>
+              <H4 class="mt-6 tracking-widest text-[#0C0C0C] group-hover:text-[#F7F7F7] transition-colors duration-500">
+                {stat.label}
+              </H4>
+            </div>
+            
+            <p class="mt-12 font-sans text-sm leading-relaxed text-[#0C0C0C]/60 group-hover:text-[#F7F7F7]/60 transition-colors duration-500 max-w-[250px]">
+              {stat.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 flex justify-end items-center">
+        <div class="h-[1px] w-24 bg-[#0C0C0C] self-center mr-4 opacity-20"></div>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-[#0C0C0C]">Industry Standard Verified</p>
+    </div>
+  </div>
+</section>

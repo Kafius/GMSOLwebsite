@@ -1,0 +1,41 @@
+---
+import socan from '../assets/logos/socan.png';
+import GMS from '../assets/logos/GMS_LOGO.jpg';
+import dataverse from '../assets/logos/dataverse.png';
+import H2 from './headerfont/H2.astro';
+import FlipImage from './FlipImage.astro';
+
+const clients = [
+    { src: socan, alt: "Socan Logo", link: "https://www.socan.com", caption:"SOCAN represents over 185,000 music creators and publishers, licensing music and distributing royalties in Canada and worldwide."},
+    { src: GMS, alt: "GMS Logo", link: "https://www.globalmusicsolutions.ca", caption:"Find out the benefits to being one of our partners here!" },
+    { src: dataverse, alt: "Dataverse Logo", link: "https://dataverse.ca", caption:"Dataverse is a Canadian non-profit organization that provides a free and open-source web application to help researchers store, share, publish, and analyze their research data."}
+];
+
+const gridClasses = clients.length === 2 
+  ? "grid grid-cols-2 place-items-center gap-10"
+  : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-10";
+---
+<div class="flex gap-x-4 items-center justify-center w-full max-w-6xl mx-auto">
+  <H2 class="text-center text-[#B31F21]">Our Partners</H2>
+</div>
+
+
+<div class="mt-8 md:mt-24">
+  <div class="max-w-5xl mx-auto"> <!-- Added max width and centering -->
+    <div class={`grid ${gridClasses} mt-12`}>
+      {clients.map(client => (
+        <div class="flex flex-col items-center justify-center">
+          <a href={client.link}> 
+            <FlipImage 
+              src={client.src}
+              backText={client.caption}
+              alt={client.alt} 
+            />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+

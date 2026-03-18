@@ -1,18 +1,18 @@
 ---
 export const prerender = true;
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Header from '../../components/Header.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts');
   return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, 
+    params: { slug: entry.id },
     props: { entry }, 
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { title, author, date, image } = entry.data;
 
 // Formatting author for the "Archive" look
@@ -62,7 +62,7 @@ const formattedAuthor = author.replace(/-/g, ' ');
             <div class="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-12 pb-20">
                 <div class="flex items-center gap-4 mb-8">
                   <span class="font-mono text-[#A53029] text-[10px] uppercase tracking-[0.5em]">
-                    // Internal_Log: {entry.slug}
+                    // Internal_Log: {entry.id}
                   </span>
                   <div class="h-[1px] w-12 bg-white/20"></div>
                 </div>

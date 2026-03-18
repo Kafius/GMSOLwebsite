@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -34,7 +34,7 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <link rel="canonical" href={Astro.url.href} />
-    <ViewTransitions/>
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body class="min-h-screen">

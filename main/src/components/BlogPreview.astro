@@ -33,7 +33,7 @@ const latestPosts = allPosts
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
       {latestPosts.map((post) => (
-        <a href={`/blog/${post.slug}`} class="group relative block overflow-hidden">
+        <a href={`/blog/${post.id}`} class="group relative block overflow-hidden">
           <div class="relative h-[400px] w-full bg-[#0C0C0C] mb-8 overflow-hidden">
             <img
               src={post.data.image}

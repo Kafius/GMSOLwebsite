@@ -16,11 +16,11 @@ export default config({
       path: 'main/src/content/posts/*',
       format: { contentField: 'content' },
       schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
+        title: fields.text({ label: 'Title' }),
         author: fields.text({ label: 'Author' }),
         date: fields.text({ label: 'Date', description: 'e.g. 08/10/2021' }),
         image: fields.text({ label: 'Image Path', description: 'e.g. /images/photo.jpg' }),
-        content: fields.markdoc({ label: 'Content' }),
+        content: fields.markdownEditor({ label: 'Content' }),
       },
     }),
   },

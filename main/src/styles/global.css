@@ -1,1 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-heading: "Archivo", sans-serif;
+  --font-sans: "Inter Variable", sans-serif;
+}

@@ -13,12 +13,13 @@
     "@astrojs/vercel": "^10.0.1",
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource/archivo": "^5.2.8",
+    "@lucide/astro": "^0.577.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.5",
     "date-fns": "^4.1.0",
     "esbuild": "^0.25.0",
     "resend": "^4.6.0",
-    "tailwindcss": "^3.4.19",
+    "tailwindcss": "^4.2.1",
     "vite": "^6.1.1"
   },
   "devDependencies": {

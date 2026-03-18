@@ -20,7 +20,7 @@ export default config({
         author: fields.text({ label: 'Author' }),
         date: fields.text({ label: 'Date', description: 'e.g. 08/10/2021' }),
         image: fields.text({ label: 'Image Path', description: 'e.g. /images/photo.jpg' }),
-        content: fields.markdownEditor({ label: 'Content' }),
+        content: fields.markdoc({ label: 'Content' }),
       },
     }),
   },

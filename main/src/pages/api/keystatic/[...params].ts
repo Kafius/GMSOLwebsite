@@ -4,8 +4,8 @@ import keystaticConfig from '../../../../keystatic.config';
 
 export const all = makeHandler({
   config: keystaticConfig,
-  clientId: process.env.KEYSTATIC_GITHUB_CLIENT_ID,
-  clientSecret: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
-  secret: process.env.KEYSTATIC_SECRET,
+  clientId: import.meta.env.KEYSTATIC_GITHUB_CLIENT_ID,
+  clientSecret: import.meta.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
+  secret: import.meta.env.KEYSTATIC_SECRET,
 });
 export { all as GET, all as POST };

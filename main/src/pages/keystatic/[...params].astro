@@ -1,0 +1,10 @@
+---
+export const prerender = false;
+import { Keystatic } from '../../../node_modules/@keystatic/astro/internal/keystatic-page.js';
+---
+<html>
+  <head><meta charset="utf-8" /><title>Keystatic</title></head>
+  <body>
+    <Keystatic client:only="react" />
+  </body>
+</html>

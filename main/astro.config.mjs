@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [mdx(), react()],
   output: 'static',
   adapter: vercel(),
-  server: { host: '0.0.0.0' },
+  server: { host: '127.0.0.1' },
   vite: {
     plugins: [
       tailwindcss(),

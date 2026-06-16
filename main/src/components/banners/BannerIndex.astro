@@ -1,8 +1,8 @@
----
+﻿---
 import H1 from '../headerfont/H1.astro';
 import SectionLabel from '../headerfont/SectionLabel.astro';
 ---
-<section class="relative min-h-screen w-full overflow-hidden bg-[#0C0C0C]">
+<section class="relative min-h-screen w-full overflow-hidden bg-onyx">
   
   <div class="absolute top-0 bottom-0 left-0 w-[20%] lg:w-[25%] z-0 opacity-80 pointer-events-none flex justify-around px-4" aria-hidden="true">
     {Array.from({ length: 4 }).map((_, i) => (
@@ -17,7 +17,7 @@ import SectionLabel from '../headerfont/SectionLabel.astro';
           class="absolute w-8 h-12 lg:w-11 lg:h-16 z-10 rounded-sm shadow-[0_15px_30px_rgba(0,0,0,0.9)] flex flex-col justify-center items-center animate-fader-move"
           style={`top: ${25 + Math.random() * 45}%; animation-delay: ${i * -0.8}s; animation-duration: ${8 + Math.random() * 4}s; background: linear-gradient(145deg, #e2e2e2, #a1a1a1); border: 1px solid #fff;`}
         >
-          <div class="w-full h-[4px] bg-[#A53029] shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
+          <div class="w-full h-[4px] bg-brand-red shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
         </div>
       </div>
     ))}
@@ -36,7 +36,7 @@ import SectionLabel from '../headerfont/SectionLabel.astro';
           class="absolute w-8 h-12 lg:w-11 lg:h-16 z-10 rounded-sm shadow-[0_15px_30px_rgba(0,0,0,0.9)] flex flex-col justify-center items-center animate-fader-move"
           style={`top: ${25 + Math.random() * 45}%; animation-delay: ${(i+4) * -0.8}s; animation-duration: ${8 + Math.random() * 4}s; background: linear-gradient(145deg, #e2e2e2, #a1a1a1); border: 1px solid #fff;`}
         >
-          <div class="w-full h-[4px] bg-[#A53029] shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
+          <div class="w-full h-[4px] bg-brand-red shadow-[0_0_10px_rgba(165,48,41,0.5)]"></div>
         </div>
       </div>
     ))}

@@ -2,6 +2,15 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-heading: "Archivo", sans-serif;
-  --font-sans: "Inter Variable", sans-serif;
+  --font-heading: "Oswald", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-onyx: #0C0C0C;
+  --color-carbon: #161616;
+  --color-porcelain: #F7F7F7;
+  --color-linen: #FAF7F2;
+  --color-brand-red: #A53029;
+  --color-brand-red-dark: #8B2420;
+  --color-cream: #F5EFE6;
 }

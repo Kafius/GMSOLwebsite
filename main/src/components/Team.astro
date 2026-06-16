@@ -1,4 +1,4 @@
----
+﻿---
 import { Image } from 'astro:assets';
 import robinImg from '../assets/team/RobinDeLeon.jpg';
 import carolineImg from '../assets/team/CarolineDeLeon.jpeg';
@@ -25,14 +25,14 @@ const team = [
 ];
 ---
 
-<section class="bg-[#F5EFE6] py-32 px-6 lg:px-12 border-t border-[#0C0C0C]/5">
+<section class="bg-cream py-32 px-6 lg:px-12 border-t border-onyx/5">
   <div class="max-w-7xl mx-auto">
     
-    <div class="border-l-4 border-[#A53029] pl-8 mb-24">
-      <H2 class="leading-none text-[#0C0C0C]">
+    <div class="border-l-4 border-brand-red pl-8 mb-24">
+      <H2 class="leading-none text-onyx">
         The <span class="italic" style="color: #A53029">Experts</span> <br /> Behind your success
       </H2>
-      <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.4em] text-[#0C0C0C]/40">Leadership Team // 2026</p>
+      <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.4em] text-onyx/40">Leadership Team // 2026</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
@@ -40,7 +40,7 @@ const team = [
         <div class={`flex flex-col group ${index === 1 ? 'md:mt-24' : ''}`}> 
           {/* Middle member staggered for dynamic layout */}
           
-          <div class="relative overflow-hidden bg-[#0C0C0C]/5">
+          <div class="relative overflow-hidden bg-onyx/5">
             <Image
               src={member.image} 
               alt={member.name} 
@@ -49,17 +49,17 @@ const team = [
               class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
             />
             
-            <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-[#F5EFE6] via-[#F5EFE6]/90 to-transparent">
-              <H4 class="text-[#0C0C0C]">
+            <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-cream via-cream/90 to-transparent">
+              <H4 class="text-onyx">
                 {member.name}
               </H4>
-              <p class="font-mono text-[10px] uppercase tracking-widest text-[#0C0C0C]/60 mt-1">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-onyx/60 mt-1">
                 {member.role}
               </p>
             </div>
           </div>
 
-          <div class="mt-4 h-[2px] w-0 bg-[#A53029] group-hover:w-full transition-all duration-700"></div>
+          <div class="mt-4 h-[2px] w-0 bg-brand-red group-hover:w-full transition-all duration-700"></div>
         </div>
       ))}
     </div>

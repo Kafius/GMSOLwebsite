@@ -1,22 +1,22 @@
 ---
 export const prerender = true;
-import { getCollection, render } from 'astro:content';
+import { getAllPosts, getPostBySlug } from '../../lib/queries';
+import PortableTextRenderer from '../../components/PortableTextRenderer.tsx';
 import Header from '../../components/Header.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.id },
-    props: { entry }, 
+  const posts = await getAllPosts();
+  return posts.map(post => ({
+    params: { slug: post.slug.current },
+    props: { slug: post.slug.current },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await render(entry);
-const { title, author, date, image } = entry.data;
+const { slug } = Astro.props;
+const post = await getPostBySlug(slug);
+const { title, author, date, image, content } = post;
 
-// Formatting author for the "Archive" look
 const formattedAuthor = author.replace(/-/g, ' ');
 ---
 
@@ -39,7 +39,7 @@ const formattedAuthor = author.replace(/-/g, ' ');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body class="bg-white text-black antialiased">
-    
+
     <Header />
 
     <div class="fixed top-0 left-0 w-full h-1 z-100 bg-black/5">
@@ -63,11 +63,11 @@ const formattedAuthor = author.replace(/-/g, ' ');
             <div class="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-12 pb-20">
                 <div class="flex items-center gap-4 mb-8">
                   <span class="font-mono text-[#A53029] text-[10px] uppercase tracking-[0.5em]">
-                    // Internal_Log: {entry.id}
+                    // Internal_Log: {slug}
                   </span>
                   <div class="h-px w-12 bg-white/20"></div>
                 </div>
-                
+
                 <h1 class="font-heading text-5xl lg:text-8xl text-white uppercase tracking-tighter leading-[0.85] max-w-5xl">
                     {title}
                 </h1>
@@ -76,7 +76,7 @@ const formattedAuthor = author.replace(/-/g, ' ');
 
         <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                
+
                 <aside class="lg:col-span-3">
                     <div class="sticky top-32 space-y-12 border-t-2 border-black pt-8">
                         <div>
@@ -95,17 +95,18 @@ const formattedAuthor = author.replace(/-/g, ' ');
                 </aside>
 
                 <article class="lg:col-span-8 lg:col-start-5">
-                    <div class="prose prose-lg prose-zinc max-w-none 
+                    <div class="prose prose-lg prose-zinc max-w-none
+                        prose-h2:font-heading prose-h2:uppercase prose-h2:text-3xl prose-h2:tracking-tighter prose-h2:mt-12
                         prose-h3:font-heading prose-h3:uppercase prose-h3:text-3xl prose-h3:tracking-tighter prose-h3:mt-12
                         prose-p:font-sans prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-8
                         prose-strong:text-black prose-strong:font-bold
                         prose-blockquote:border-[#A53029] prose-blockquote:bg-zinc-50 prose-blockquote:py-2 prose-blockquote:font-sans prose-blockquote:italic">
-                        <Content />
+                        <PortableTextRenderer content={content} />
                     </div>
-                    
+
                     <div class="mt-32 pt-12 border-t border-gray-100 flex justify-between items-center">
                         <a href="/blog" class="group flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest">
-                            <span class="group-hover:-translate-x-2 transition-transform duration-300">←</span> 
+                            <span class="group-hover:-translate-x-2 transition-transform duration-300">←</span>
                             Return_to_Archive
                         </a>
                         <span class="font-mono text-[9px] text-gray-300 uppercase tracking-widest">// End_Of_Report</span>

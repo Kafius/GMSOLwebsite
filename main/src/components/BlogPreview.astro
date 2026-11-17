@@ -17,11 +17,11 @@ const latestPosts = (await getAllPosts()).slice(0, 2);
           <div class="h-[1px] w-12 bg-brand-red"></div>
         </div>
         <H2 class="text-onyx">
-          Liner <span class="italic text-transparent stroke-onyx">Notes</span>
+          Liner <span class="text-brand-red">Notes</span>
         </H2>
       </div>
 
-      <a href="/blog" class="group flex items-center gap-4 font-mono text-xs uppercase tracking-widest border-b border-onyx pb-2 text-onyx">
+      <a href="/blog" class="group flex items-center gap-4 font-sans text-xs uppercase tracking-widest border-b border-onyx pb-2 text-onyx">
         View Full Archive
         <span class="group-hover:translate-x-2 transition-transform duration-300 text-brand-red">→</span>
       </a>
@@ -43,14 +43,14 @@ const latestPosts = (await getAllPosts()).slice(0, 2);
             <div class="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60"></div>
 
             <div class="absolute top-6 left-6 shadow-xl">
-              <span class="bg-brand-red text-porcelain font-mono text-[9px] px-3 py-1 uppercase tracking-widest">
+              <span class="bg-brand-red text-porcelain font-sans text-xs px-3 py-1 uppercase tracking-widest">
                 New_Entry
               </span>
             </div>
           </div>
 
           <div class="space-y-4 px-2">
-            <div class="flex items-center gap-3 font-mono text-[10px] text-onyx/40 uppercase tracking-widest">
+            <div class="flex items-center gap-3 font-sans text-xs text-onyx/40 uppercase tracking-widest">
               <span>{post.date}</span>
               <span class="text-brand-red">//</span>
               <span>By {post.author.replace('-', ' ')}</span>

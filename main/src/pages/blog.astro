@@ -15,7 +15,7 @@ const posts = await getAllPosts();
 
     <main class="py-32 max-w-7xl mx-auto px-6">
       <div class="flex items-center gap-4 mb-8">
-        <span class="font-mono text-brand-red text-[10px] uppercase tracking-[0.5em]">// File_Index</span>
+        <span class="font-sans text-brand-red text-xs uppercase tracking-[0.5em]">// File_Index</span>
         <div class="h-[1px] flex-grow bg-onyx/10"></div>
       </div>
 
@@ -38,7 +38,7 @@ const posts = await getAllPosts();
               </div>
               <div class="flex-grow grid grid-cols-1 md:grid-cols-12 items-center gap-4">
                 <div class="md:col-span-2">
-                  <span class="font-mono text-sm text-brand-red">{post.date}</span>
+                  <span class="font-sans text-sm text-brand-red">{post.date}</span>
                 </div>
                 <div class="md:col-span-8">
                   <h2 class="font-heading text-2xl lg:text-3xl uppercase tracking-tight group-hover:italic transition-all">
@@ -46,7 +46,7 @@ const posts = await getAllPosts();
                   </h2>
                 </div>
                 <div class="md:col-span-2 text-right">
-                  <span class="font-mono text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity underline decoration-brand-red underline-offset-4">
+                  <span class="font-sans text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity underline decoration-brand-red underline-offset-4">
                     Open_File
                   </span>
                 </div>

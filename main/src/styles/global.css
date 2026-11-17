@@ -12,5 +12,27 @@
   --color-linen: #FAF7F2;
   --color-brand-red: #A53029;
   --color-brand-red-dark: #8B2420;
+  --color-brand-red-light: #E0675F; /* brand red for text on onyx/carbon: 5.6:1 */
   --color-cream: #F5EFE6;
+}
+
+/* ── website-polish ─────────────────────────────────────────────── */
+/* Section labels on dark grounds use the lighter brand red for contrast. */
+:is(.bg-onyx, .bg-carbon, .bg-black) .section-label { color: var(--color-brand-red-light); }
+@layer base {
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p, li, blockquote { text-wrap: pretty; }
+  a[href^="tel:"], time { font-variant-numeric: tabular-nums; }
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-brand-red-light);
+    outline-offset: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

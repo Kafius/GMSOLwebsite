@@ -3,6 +3,6 @@ import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'span'> {}
 const { class: className = '' } = Astro.props;
 ---
-<span class={`font-mono text-[10px] uppercase tracking-[0.5em] text-brand-red ${className}`}>
+<span class={`section-label font-sans text-xs uppercase tracking-[0.3em] text-brand-red ${className}`}>
   <slot />
 </span>
